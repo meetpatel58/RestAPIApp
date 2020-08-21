@@ -3,10 +3,12 @@ package com.stardust.spring.services;
 import com.stardust.spring.api.v1.mapper.CatagoryMapper;
 import com.stardust.spring.api.v1.model.CatagoryDTO;
 import com.stardust.spring.repositories.CatagoryRepository;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
+@Service
 public class CatagoryServiceImpl implements CatagoryService {
 
     private final CatagoryMapper catagoryMapper;

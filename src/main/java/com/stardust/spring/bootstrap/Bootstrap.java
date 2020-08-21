@@ -30,10 +30,14 @@ public class Bootstrap implements CommandLineRunner {
         Catagory gpu = new Catagory();
         ram.setName("GPU");
 
+        Catagory psu = new Catagory();
+        ram.setName("PSU");
+
         catagoryRepository.save(monitors);
         catagoryRepository.save(ram);
         catagoryRepository.save(cpu);
         catagoryRepository.save(gpu);
+        catagoryRepository.save(psu);
 
         System.out.println("Data Loaded = " + catagoryRepository.count());
     }
