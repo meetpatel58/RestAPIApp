@@ -9,4 +9,6 @@ public interface CatagoryService {
     List<CatagoryDTO> getAllCategories();
 
     CatagoryDTO getCategoryByName(String name);
+
+    CatagoryDTO createNewCatagory(CatagoryDTO catagoryDTO);
 }

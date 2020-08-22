@@ -2,6 +2,7 @@ package com.stardust.spring.services;
 
 import com.stardust.spring.api.v1.mapper.CatagoryMapper;
 import com.stardust.spring.api.v1.model.CatagoryDTO;
+import com.stardust.spring.model.Catagory;
 import com.stardust.spring.repositories.CatagoryRepository;
 import org.springframework.stereotype.Service;
 
@@ -23,12 +24,24 @@ public class CatagoryServiceImpl implements CatagoryService {
     public List<CatagoryDTO> getAllCategories() {
         return catagoryRepository.findAll()
                 .stream()
-                .map(catagoryMapper::catagorytoCatagoryDTO)
+                .map(catagoryMapper::catagoryToCatagoryDTO)
                 .collect(Collectors.toList());
     }
 
     @Override
     public CatagoryDTO getCategoryByName(String name) {
-        return catagoryMapper.catagorytoCatagoryDTO(catagoryRepository.findByName(name));
+        return catagoryMapper.catagoryToCatagoryDTO(catagoryRepository.findByName(name));
+    }
+
+    @Override
+    public CatagoryDTO createNewCatagory(CatagoryDTO catagoryDTO) {
+
+        Catagory catagory = catagoryMapper.catagoryDTOToCatagory(catagoryDTO);
+
+        Catagory savedcatagory = catagoryRepository.save(catagory);
+
+        CatagoryDTO returnDTO = catagoryMapper.catagoryToCatagoryDTO(savedcatagory);
+
+        return returnDTO;
     }
 }

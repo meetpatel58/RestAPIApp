@@ -5,10 +5,12 @@ import com.stardust.spring.model.Catagory;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 
-@Mapper
+@Mapper(componentModel = "spring")
 public interface CatagoryMapper {
 
     CatagoryMapper INSTANCE = Mappers.getMapper(CatagoryMapper.class);
 
-    CatagoryDTO catagorytoCatagoryDTO(Catagory catagory);
+    CatagoryDTO catagoryToCatagoryDTO(Catagory catagory);
+
+    Catagory catagoryDTOToCatagory(CatagoryDTO catagoryDTO);
 }

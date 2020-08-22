@@ -29,4 +29,10 @@ public class CatagoryController {
     public CatagoryDTO getCatagoryByName( @PathVariable String name){
         return catagoryService.getCategoryByName(name);
     }
+
+    @PostMapping
+    @ResponseStatus(HttpStatus.CREATED)
+    public CatagoryDTO createNewCatagory(@RequestBody CatagoryDTO catagoryDTO){
+        return catagoryService.createNewCatagory(catagoryDTO);
+    }
 }
