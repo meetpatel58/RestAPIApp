@@ -15,4 +15,6 @@ public interface CatagoryService {
     CatagoryDTO saveCatagoryByDTO(Long id, CatagoryDTO catagoryDTO);
 
     CatagoryDTO patchCatagory(Long id, CatagoryDTO catagoryDTO);
+
+    void deleteCustomerById(Long id);
 }

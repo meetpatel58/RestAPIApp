@@ -48,4 +48,11 @@ public class CatagoryController {
         return catagoryService.patchCatagory(Id, catagoryDTO);
     }
 
+    @DeleteMapping({"/{Id}"})
+    @ResponseStatus(HttpStatus.OK)
+    public void deleteCatagory(@PathVariable Long Id){
+
+        catagoryService.deleteCustomerById(Id);
+    }
+
 }

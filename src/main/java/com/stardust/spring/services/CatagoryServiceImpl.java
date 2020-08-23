@@ -76,4 +76,10 @@ public class CatagoryServiceImpl implements CatagoryService {
             return returnDTO;
         }).orElseThrow(RuntimeException::new);
     }
+
+    @Override
+    public void deleteCustomerById(Long id) {
+
+        catagoryRepository.deleteById(id);
+    }
 }
