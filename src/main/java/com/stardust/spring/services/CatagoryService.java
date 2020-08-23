@@ -13,4 +13,6 @@ public interface CatagoryService {
     CatagoryDTO createNewCatagory(CatagoryDTO catagoryDTO);
 
     CatagoryDTO saveCatagoryByDTO(Long id, CatagoryDTO catagoryDTO);
+
+    CatagoryDTO patchCatagory(Long id, CatagoryDTO catagoryDTO);
 }

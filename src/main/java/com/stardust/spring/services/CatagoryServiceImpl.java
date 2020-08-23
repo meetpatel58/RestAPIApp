@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import javax.persistence.Id;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -57,5 +58,22 @@ public class CatagoryServiceImpl implements CatagoryService {
         CatagoryDTO returnDTO = catagoryMapper.catagoryToCatagoryDTO(savedcatagory);
 
         return returnDTO;
+    }
+
+    @Override
+    public CatagoryDTO patchCatagory(Long id, CatagoryDTO catagoryDTO) {
+
+        return catagoryRepository.findById(id).map(catagory -> {
+
+            if(catagoryDTO.getName() != null){
+                catagory.setName(catagoryDTO.getName());
+            }
+
+            Catagory savedCatagory = catagoryRepository.save(catagory);
+
+            CatagoryDTO returnDTO = catagoryMapper.catagoryToCatagoryDTO(savedCatagory);
+
+            return returnDTO;
+        }).orElseThrow(RuntimeException::new);
     }
 }

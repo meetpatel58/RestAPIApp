@@ -42,4 +42,10 @@ public class CatagoryController {
         return catagoryService.saveCatagoryByDTO(Id, catagoryDTO);
     }
 
+    @PatchMapping({"/{Id}"})
+    @ResponseStatus(HttpStatus.OK)
+    public CatagoryDTO updateByPatchCatagory(@PathVariable Long Id, @RequestBody CatagoryDTO catagoryDTO){
+        return catagoryService.patchCatagory(Id, catagoryDTO);
+    }
+
 }
