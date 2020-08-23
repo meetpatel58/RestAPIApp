@@ -35,4 +35,11 @@ public class CatagoryController {
     public CatagoryDTO createNewCatagory(@RequestBody CatagoryDTO catagoryDTO){
         return catagoryService.createNewCatagory(catagoryDTO);
     }
+
+    @PutMapping({"/{Id}"})
+    @ResponseStatus(HttpStatus.OK)
+    public CatagoryDTO updateCatagory(@PathVariable Long Id, @RequestBody CatagoryDTO catagoryDTO){
+        return catagoryService.saveCatagoryByDTO(Id, catagoryDTO);
+    }
+
 }

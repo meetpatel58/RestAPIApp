@@ -6,6 +6,7 @@ import com.stardust.spring.model.Catagory;
 import com.stardust.spring.repositories.CatagoryRepository;
 import org.springframework.stereotype.Service;
 
+import javax.persistence.Id;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -37,6 +38,19 @@ public class CatagoryServiceImpl implements CatagoryService {
     public CatagoryDTO createNewCatagory(CatagoryDTO catagoryDTO) {
 
         Catagory catagory = catagoryMapper.catagoryDTOToCatagory(catagoryDTO);
+
+        Catagory savedcatagory = catagoryRepository.save(catagory);
+
+        CatagoryDTO returnDTO = catagoryMapper.catagoryToCatagoryDTO(savedcatagory);
+
+        return returnDTO;
+    }
+
+    @Override
+    public CatagoryDTO saveCatagoryByDTO(Long id, CatagoryDTO catagoryDTO) {
+
+        Catagory catagory = catagoryMapper.catagoryDTOToCatagory(catagoryDTO);
+        catagory.setId(id);
 
         Catagory savedcatagory = catagoryRepository.save(catagory);
 

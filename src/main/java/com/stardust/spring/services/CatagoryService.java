@@ -11,4 +11,6 @@ public interface CatagoryService {
     CatagoryDTO getCategoryByName(String name);
 
     CatagoryDTO createNewCatagory(CatagoryDTO catagoryDTO);
+
+    CatagoryDTO saveCatagoryByDTO(Long id, CatagoryDTO catagoryDTO);
 }
